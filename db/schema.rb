@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 20160118225046) do
   enable_extension "plpgsql"
 
   create_table "rubrics", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "rubrics", ["name"], name: "index_rubrics_on_name", unique: true, using: :btree
 
 end
