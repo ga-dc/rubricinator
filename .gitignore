@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# byebug
+.byebug_history
+
+# rspec
+spec/examples.txt

@@ -1,0 +1,13 @@
+{
+  "type": "Rubric::ActiveRecord_Relation",
+  "items": {
+    "type": "Rubric",
+    "properties" : {
+      "id" : { "type" : "integer" },
+      "name" : { "type" : "string" }
+    },
+    "required": ["id", "name"]
+  },
+  "minItems": 1,
+  "uniqueItems": true
+}

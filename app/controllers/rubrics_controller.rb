@@ -5,6 +5,10 @@ class RubricsController < ApplicationController
   # GET /rubrics.json
   def index
     @rubrics = Rubric.all
+    respond_to do |format|
+      format.json { render json: @rubrics }
+      format.html
+    end
   end
 
   # GET /rubrics/1

@@ -24,11 +24,11 @@ RSpec.describe RubricsController, type: :controller do
   # Rubric. As you add validations to Rubric, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {name: "TEST RUBRIC"}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: nil}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -156,4 +156,15 @@ RSpec.describe RubricsController, type: :controller do
     end
   end
 
+  describe 'api', {:focus=>true} do
+    describe "GET #index" do
+      it "assigns all rubrics as @rubrics" do
+        rubric = Rubric.create! valid_attributes
+        get :index, {format: :json}, valid_session
+  Rails.logger.debug "DBG: rubrics=#{assigns[:rubrics].inspect}"
+        expect(assigns(:rubrics)).to match_json_schema(:rubrics)
+      end
+    end
+
+  end
 end

@@ -4,16 +4,16 @@ RSpec.describe "rubrics/index", type: :view do
   before(:each) do
     assign(:rubrics, [
       Rubric.create!(
-        :name => "Name"
+        :name => "Name1"
       ),
       Rubric.create!(
-        :name => "Name"
+        :name => "Name2"
       )
     ])
   end
 
   it "renders a list of rubrics" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
+    assert_select "tr>td", :text => /Name\d/, :count => 2
   end
 end
